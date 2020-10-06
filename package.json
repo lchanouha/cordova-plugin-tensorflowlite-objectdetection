@@ -1,0 +1,47 @@
+{
+  "cordova": {
+    "id": "cordova-plugin-tensorflowlite-objectdetection",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "dependencies": {},
+  "description": "TensorFlow for Cordova",
+  "devDependencies": {},
+  "engines": [
+    {
+      "name": "cordova-android",
+      "version": ">=5.1.0"
+    },
+    {
+      "name": "cordova-ios",
+      "version": ">=6.0.0"
+    }
+  ],
+  "gitHead": "ee6d862a97baa88109bead67202fb308a28e104f",
+  "homepage": "https://github.com/lchanouha/cordova-plugin-tensorflowlite-objectdetection",
+  "keywords": [
+    "ai",
+    "inference",
+    "classification",
+    "imagerecognition",
+    "neuralnetworks",
+    "machinelearning",
+    "tensorflow",
+    "inception",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-tensorflowlite-objectdetection",
+  "optionalDependencies": {},
+  "readmeFilename": "README.md",
+  "author": "Louis Chanouha"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lchanouha/cordova-plugin-tensorflowlite-objectdetection"
+  },
+  "version": "1.0.0"
+}

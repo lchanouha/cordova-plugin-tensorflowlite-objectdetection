@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="cordova-plugin-tensorflowlite-objectdetection" version="1.0.0">
+    <name>TensorFlow for Cordova</name>
+    <description>Cordova/PhoneGap wrapper for TensorFlow's image recognition binary library.</description>
+    <license>MIT</license>
+    <keywords>cordova,tensorflow</keywords>
+    
+    <dependency id="cordova-plugin-add-swift-support" />
+    <dependency id="cordova-custom-config" />
+    
+    <platform name="android">
+        <framework src="org.tensorflow:tensorflow-lite:+" />
+        <config-file target="config.xml" parent="/*">
+            <feature name="CDVTensorFlowLite">
+              <param name="android-package" value="io.wq.tensorflow.CDVTensorFlowLite" />
+            </feature>
+        </config-file>
+        <source-file src="src/android/CDVTensorFlowLite.java" target-dir="src/io/wq/tensorflow" />
+        <source-file src="src/android/TFLiteObjectDetectionAPIModel.java" target-dir="src/io/wq/tensorflow" />
+        <source-file src="src/android/Classifier.java" target-dir="src/io/wq/tensorflow" />
+    </platform>
+
+    <platform name="ios">
+        <pods-config ios-min-version="12.0" />
+        <!--<pod name="TensorFlowLiteSwift" spec="2.2.0"/>-->
+        <podspec>
+            <config>
+                <source url="https://cdn.cocoapods.org/"/>
+            </config>
+            <pods use-frameworks="true">
+                <pod name="TensorFlowLiteSwift" swift-version="4.2" spec="2.2.0"/>
+            </pods>
+        </podspec>
+        <config-file target="config.xml" parent="/*">
+            <feature name="CDVTensorFlowLite">
+                <param name="ios-package" value="CDVTensorFlowLite" />
+            </feature>
+        </config-file>
+        <source-file src="src/ios/CVPixelBufferExtension.swift" />
+        <source-file src="src/ios/ModelDataHandler.swift" />
+        <source-file src="src/ios/CDVTensorFlowLite.swift" />
+    </platform>
+</plugin>
+
