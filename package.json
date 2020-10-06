@@ -38,7 +38,7 @@
   "name": "cordova-plugin-tensorflowlite-objectdetection",
   "optionalDependencies": {},
   "readmeFilename": "README.md",
-  "author": "Louis Chanouha"
+  "author": "Louis Chanouha",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lchanouha/cordova-plugin-tensorflowlite-objectdetection"

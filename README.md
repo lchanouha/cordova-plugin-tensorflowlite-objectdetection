@@ -45,10 +45,17 @@ sample outputs:
 [ {title: 1, confidence: 0.857545, top: 102.415, left: 85.125, bottom: 140.45, right:120.15} ]
 ```
 
+
+## Supported Platforms
+
+* Android - working on 10, 11, should work on earlier versions
+* iOS (use https://github.com/cordova-rtc/cordova-plugin-iosrtc for AR) - tested on iPhone 5S / iOS12
+
+
 ## Installation
 
 ### Cordova
-TensorflowLite needs variable SWIFT_VERSION set. I did not find a way to set it cleanly. So the plugin needs to be added after the platform is added, variable set and platform built on time.
+TensorflowLite needs variable SWIFT_VERSION set on iOS. I did not find a way to set it cleanly. So the plugin needs to be added after the platform is added, variable set and platform built on time.
 Add on config.xml, on section `<platform name="ios">`
 ```xml
 <preference name="UseSwiftLanguageVersion" value="4.2" />
@@ -56,14 +63,10 @@ Add on config.xml, on section `<platform name="ios">`
 Then:
 ```bash
 cordova plugin add cordova-custom-config -save
-cordova build
-cordova plugin add https://github.com/lchanouha/cordova-plugin-tensorflowlite-objectdetection -save
+cordova build ios
+cordova plugin add git+https://github.com/lchanouha/cordova-plugin-tensorflowlite-objectdetection#main -save
 ```
 
-## Supported Platforms
-
-* Android - working on 10, 11, should work on earlier versions
-* iOS (use https://github.com/cordova-rtc/cordova-plugin-iosrtc for AR) - tested on iPhone 5S / iOS12
 
 ## API
 
