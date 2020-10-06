@@ -1,11 +1,11 @@
 # cordova-plugin-tensorflowlite-objectdetection
 
-This plugin is based on work of heigo (https://github.com/heigeo/cordova-plugin-tensorflow) on Android, adds on it iOS and custom quantized 300x300 model support. The code needs to be cleaned up and error handled in a better way but this plugin is actually working well.
-
 Integrate the TensorFlow inference library into your PhoneGap/Cordova application!
 
+This plugin is based on heigo's work (https://github.com/heigeo/cordova-plugin-tensorflow) on Android, adds on it iOS and custom quantized 300x300 model support. The code needs to be cleaned up and error handled in a better way but this plugin is actually working well.
+
 ## Usage
-This plugins does not  have an JS wrapper yet, feel free to add one. It handle only local files, so they must me downloaded first, with cordova-plugin-file-transfer for example:
+This plugins does not have an JS wrapper yet, feel free to add one (PRs are welcome). It handle only local files, so they must me downloaded first, with cordova-plugin-file-transfer for example:
 
 ### Loading model
 ```javascript
@@ -25,6 +25,7 @@ $cordovafiletransfer.download(url, localPath, {}, true).then(function(){
 ### Inference
 
 ```javascript
+//let imgData = new Image();
 var  canvas = document.createElement('canvas'),
         ctx = canvas.getContext("2d");
 canvas.width = imgData.width;
@@ -32,8 +33,9 @@ canvas.height = imgData.height;
 ctx.drawImage(imgData, 0, 0);
 let  uri = canvas.toDataURL('image/png');
 toSendData = uri.replace(/^data:image.+;base64,/, '');
-cordova.exec(function(r) {
-	console.log(output)
+
+cordova.exec(function(results) {
+	console.log(results)
 }, function(e){
 	console.log("Error loading inference from tensorflow", e);
 }, "CDVTensorFlowLite", "classify", [ id, toSendData ]);
@@ -44,7 +46,6 @@ sample outputs:
 ```
 
 ## Installation
-
 
 ### Cordova
 TensorflowLite needs variable SWIFT_VERSION set. I did not find a way to set it cleanly. So the plugin needs to be added after the platform is added, variable set and platform built on time.
@@ -66,7 +67,7 @@ cordova plugin add https://github.com/lchanouha/cordova-plugin-tensorflowlite-ob
 
 ## API
 
-### Load model
+### Check camera permission
 
 ```javascript
 cordova.exec(function() {
