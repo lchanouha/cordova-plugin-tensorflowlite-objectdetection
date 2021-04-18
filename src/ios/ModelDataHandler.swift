@@ -163,14 +163,14 @@ class ModelDataHandler {
     
     var results: [[AnyHashable : Any]] = []
     let r = Int(quantizedResultsNumD![0])
-
-    for i in 0...(r-1) {
-        results.append([
-            "confidence": quantizedResultsScores![i],
-            "title"     : 1 + Int (quantizedResultsClasses![i]),
-            "boxes"     : [quantizedResultsBoxes![i] * 300, quantizedResultsBoxes![i+1] * 300, quantizedResultsBoxes![i+2] * 300, quantizedResultsBoxes![i+3] * 300]
-        ])
-        
+    if(r > 0){
+        for i in 0...(r-1) {
+            results.append([
+                "confidence": quantizedResultsScores![i],
+                "title"     : 1 + Int (quantizedResultsClasses![i]),
+                "boxes"     : [quantizedResultsBoxes![i] * 300, quantizedResultsBoxes![i+1] * 300, quantizedResultsBoxes![i+2] * 300, quantizedResultsBoxes![i+3] * 300]
+            ])
+        }
     }
     //dump(results);
 
