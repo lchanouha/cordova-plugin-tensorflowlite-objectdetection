@@ -136,7 +136,6 @@ public class TFLiteObjectDetectionAPIModel implements Classifier {
     d.imgData.order(ByteOrder.nativeOrder());
     d.intValues = new int[d.inputSize * d.inputSize];
 
-    d.tfLite.setNumThreads(NUM_THREADS);
     d.outputLocations = new float[1][NUM_DETECTIONS][4];
     d.outputClasses = new float[1][NUM_DETECTIONS];
     d.outputScores = new float[1][NUM_DETECTIONS];
@@ -234,10 +233,6 @@ public class TFLiteObjectDetectionAPIModel implements Classifier {
 
   @Override
   public void close() {}
-
-  public void setNumThreads(int num_threads) {
-    if (tfLite != null) tfLite.setNumThreads(num_threads);
-  }
 
   @Override
   public void setUseNNAPI(boolean isChecked) {
